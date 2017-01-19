@@ -6,5 +6,5 @@ import ReactDOM from 'react-dom';
 import Board from './components/board.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-	ReactDOM,render(<Board />, document.getElementById('app'));
+	ReactDOM.render(<Board />, document.getElementById('app'));
 });
