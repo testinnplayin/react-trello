@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 export default function Card() {
 	return (
-		<p>This is a card</p>
+		<div className="card">
+			<p>This is a card</p>
+		</div>
 	);
 }
