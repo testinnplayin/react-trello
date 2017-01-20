@@ -3,11 +3,6 @@ import React from 'react';
 import Card from './card';
 
 export default function List(props) {
-	// const cards = [];
-
-	// for (let i = 0; i < 3; i++) {
-	// 	cards.push(<Card />);
-	// }
 
 	return (
 		<div className='list'>
@@ -25,18 +20,12 @@ class Change extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			changed: false
-		}
-
 		this.onAddInputChange = this.onAddInputChange.bind(this);
 	}
 
-	onAddInputChange() {
+	onAddInputChange(event) {
 		console.log('change event triggered');
-		this.setState({
-			changed: true
-		});
+		this.setState({text: event.target.value});
 	}
 }
 
@@ -44,13 +33,14 @@ class Submit extends React.Component {
 	constructor(props) {
 		super(props);
 
-		e.preventDefault();
-
 		this.onAddSubmit = this.onAddSubmit.bind(this);
 	}
 
-	onAddSubmit() {
+	onAddSubmit(e) {
+		e.preventDefault();
 		console.log('submit event triggered');
-
+		let newCards = [];
+		newCards.push(this.props.text);
+		this.setState({cards: newCards});
 	}
 }

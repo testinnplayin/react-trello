@@ -1,16 +1,13 @@
 import React from 'react';
 
-import List from './list';
+import ListContainer from './list-container';
 
-export default function Board(props) {
-	const lists = [];
-	for (let i = 0; i < 3; i++) {
-		lists.push(<List />);
-	}
+export default function Board() {
+
 	return (
 		<div className="board">
 			<h3 className="board-title">React Trello To Do List</h3>
-			{lists}
+			<ListContainer />
 		</div>
 	);
 
