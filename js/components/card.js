@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export default function Card() {
+export default function Card(props) {
 	return (
 		<div className="card">
-			<p>This is a card</p>
+			<p className="card-content">{props.content}</p>
 		</div>
 	);
 }
