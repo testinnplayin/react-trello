@@ -1,19 +1,23 @@
 import React from 'react';
 
 // import Card from './card';
-export class List extends ListContainer {
+export default class List extends React.Component {
 // export default function List(props) {
-	// return <div>puppes</div>;
-	return (
-		<div className='list'>
-			<h3 className="list-title">{props.title}</h3>
-			<form>
-				<label htmlFor="text-input">Text Input:</label>
-				<input id="text-input" type="text" onChange={props.onChange} />
-				<button type="submit" onSubmit={props.onSubmit}>Submit</button>
-			</form>
-		</div>
-	);
+	constructor(props) {
+		super(props);
+		console.log('props',this.props);
+	}
+
+	render() {
+		return <div className='list'>
+				<h3 className="list-title">List</h3>
+				<form onSubmit={this.props.onSubmit}>
+					<label htmlFor="text-input">Text Input:</label>
+					<input id="text-input" type="text" onChange={this.props.onChange} />
+					<button type="submit">Submit</button>
+				</form>
+			</div>;
+	}
 }
 
 // class Change extends React.Component {

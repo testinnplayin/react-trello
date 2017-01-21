@@ -21,14 +21,15 @@ export default class ListContainer extends React.Component {
 
 	onAddSubmit(e) {
 		e.preventDefault();
+		e.stopPropagation();
 		console.log('submit event triggered');
-		let newCards = [];
-		newCards.push(this.props.text);
-		this.setState({cards: newCards});
+		this.state.cards.push(this.state.text);
+		console.log('newCards',this.state.cards);
+		return false;
 	}
 
 
 	render() {
-		return <List cards={this.state.cards} onChange={this.state.onAddInputChange} onSubmit={this.state.onAddSubmit} />;
+		return <List cards={this.state.cards} onChange={this.onAddInputChange} onSubmit={this.onAddSubmit} />;
 	}
 }
