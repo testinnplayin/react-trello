@@ -2,7 +2,6 @@ import React from 'react';
 
 // import Card from './card';
 export default class List extends React.Component {
-// export default function List(props) {
 	constructor(props) {
 		super(props);
 		console.log('props',this.props);
@@ -20,31 +19,3 @@ export default class List extends React.Component {
 	}
 }
 
-// class Change extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-
-// 		this.onAddInputChange = this.onAddInputChange.bind(this);
-// 	}
-
-// 	onAddInputChange(event) {
-// 		console.log('change event triggered');
-// 		this.setState({text: event.target.value});
-// 	}
-// }
-
-// class Submit extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-
-// 		this.onAddSubmit = this.onAddSubmit.bind(this);
-// 	}
-
-// 	onAddSubmit(e) {
-// 		e.preventDefault();
-// 		console.log('submit event triggered');
-// 		let newCards = [];
-// 		newCards.push(this.props.text);
-// 		this.setState({cards: newCards});
-// 	}
-// }
