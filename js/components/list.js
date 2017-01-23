@@ -1,10 +1,10 @@
 import React from 'react';
 
-// import Card from './card';
+import Card from './card';
 export default class List extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log('props',this.props);
+		// console.log('props',this.props);
 	}
 
 	render() {
@@ -15,6 +15,7 @@ export default class List extends React.Component {
 					<input id="text-input" type="text" onChange={this.props.onChange} />
 					<button type="submit">Submit</button>
 				</form>
+				<Card card-content={this.cards} />
 			</div>;
 	}
 }

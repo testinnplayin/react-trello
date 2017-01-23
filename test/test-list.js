@@ -27,7 +27,6 @@ describe('List component', function() {
 
 		const result = renderer.getRenderOutput();
 		result.props.className.should.equal('list');
-		console.log(result);
 
 		const h3 = result.props.children[0];
 		h3.props.className.should.equal('list-title');
@@ -35,7 +34,6 @@ describe('List component', function() {
 
 		
 		const form = result.props.children[1];
-		console.log(form);
 		form.props.onSubmit.should.equal(fakeOnSubmit);
 		form.type.should.equal('form');
 
@@ -52,5 +50,34 @@ describe('List component', function() {
 		const button = form.props.children[2];
 		button.type.should.equal('button');
 		button.props.type.should.equal('submit');
+	});
+
+	it('should have an onChange and onSubmit property that puts text into the state object and puts it into cards array', function() {
+		var fakeStateObj = {
+			text: '',
+			cards: ['Buy Milk', 'Walk Dog']
+		};
+
+		function fakeOnChange() {
+			let text = 'Dance Wildly';
+			fakeStateObj.text = text;
+			return text;
+		};
+
+		let change = fakeOnChange();
+
+		function fakeOnSubmit() {
+			let card = fakeOnChange();
+			fakeStateObj.cards.push(card);
+			return card;
+		};
+
+		let submit = fakeOnSubmit();
+
+		change.should.be.a('string');
+		submit.should.be.a('string');
+		fakeStateObj.cards.should.have.lengthOf(3);
+		fakeStateObj.cards[2].should.be.equal(change);
+
 	});
 });
