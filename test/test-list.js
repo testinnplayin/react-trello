@@ -52,7 +52,7 @@ describe('List component', function() {
 		button.props.type.should.equal('submit');
 	});
 
-	it('should have an onChange and onSubmit property that puts text into the state object and puts it into cards array', function() {
+	it('should have functional onChange and onSubmit', function() {
 		var fakeStateObj = {
 			text: '',
 			cards: ['Buy Milk', 'Walk Dog']
@@ -79,5 +79,17 @@ describe('List component', function() {
 		fakeStateObj.cards.should.have.lengthOf(3);
 		fakeStateObj.cards[2].should.be.equal(change);
 
+		const renderer = TestUtils.createRenderer();
+		renderer.render(<List cards={fakeStateObj.cards[2]} onChange={fakeOnChange} onSubmit={fakeOnSubmit}/>);
+
+		const result = renderer.getRenderOutput();
+		console.log(result.props.children[1].props.children);
+
+		const card = result.props.children[2];
+		card.type.should.be.a('function');
+		card.props['card-content'].should.equal(change);
+
+		const funks = result.props.children[1];
+		console.log(funks);
 	});
 });

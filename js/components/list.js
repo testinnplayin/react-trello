@@ -15,7 +15,7 @@ export default class List extends React.Component {
 					<input id="text-input" type="text" onChange={this.props.onChange} />
 					<button type="submit">Submit</button>
 				</form>
-				<Card card-content={this.cards} />
+				<Card card-content={this.props.cards} />
 			</div>;
 	}
 }
