@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default function Card(props) {
-	console.log('props',props);
+	const cards = props.cards;
+
+	const card = cards.map(function(cContent, index) {
+					return <p className="cards" key={ index }>{cContent}</p>;
+				});
+
 	return (
 		<div className="card">
-			{
-				props['cardContent'].map(function(cContent, index)
-				{ return <p className="card-content" key={ index }>{cContent}</p>; })
-			}
+			{card}
 		</div>
 	);
 }
