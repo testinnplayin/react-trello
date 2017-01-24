@@ -23,7 +23,9 @@ export default class ListContainer extends React.Component {
 		e.preventDefault();
 		e.stopPropagation();
 		console.log('submit event triggered');
-		this.state.cards.push(this.state.text);
+		let tmpCardArr = this.state.cards;
+		tmpCardArr.push(this.state.text);
+		this.setState({cards:tmpCardArr});
 		console.log('newCards',this.state.cards);
 		return false;
 	}
